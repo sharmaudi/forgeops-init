@@ -1,4 +1,4 @@
-# stack-config
+# forgeops-init
 
 ##Warning
 
@@ -14,7 +14,7 @@ You can fork and clone this project to use as starting point.
 
 These configuration files will get mounted as a volume by Kubernetes when the products are being configured. The volume type 
 can be a gitRepo clone, or any other mechanism you choose. For example, on minikube you can map a local folder 
-on your Mac to a hostPath volume in Kubernetes. This allows you to do interactive development and import / export the
+on your system to a hostPath volume in Kubernetes. This allows you to do interactive development and import / export the
 configuration as you develop. When you are happy with the configuration, you can version those changes and push
 them to your own git repo. See the fretes project above for more information.
 
