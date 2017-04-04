@@ -1,7 +1,7 @@
 {
   "metadata" : {
     "realm" : null,
-    "amsterVersion" : "14.0.0-SNAPSHOT",
+    "amsterVersion" : "14.0.0",
     "entityType" : "DefaultSecurityProperties",
     "entityId" : "DefaultSecurityProperties",
     "pathParams" : { }
@@ -35,7 +35,7 @@
       "com.sun.identity.crl.cache.directory.ssl" : false,
       "com.sun.identity.crl.cache.directory.user" : "",
       "com.sun.identity.crl.cache.directory.password" : null,
-      "com.sun.identity.crl.cache.directory.password-encrypted" : "AAAAA0FFUwIQEtwIqT89x09cVaPSn2za55MEaFGSHo24Va4E3tElEQs=",
+      "com.sun.identity.crl.cache.directory.password-encrypted" : "AAAAA0FFUwIQjVqRl7uCRgCDp5FbToSXO6MjWCYPxuyZwT3yOyA3oDM=",
       "com.sun.identity.crl.cache.directory.searchlocs" : "",
       "com.sun.identity.crl.cache.directory.searchattr" : ""
     },

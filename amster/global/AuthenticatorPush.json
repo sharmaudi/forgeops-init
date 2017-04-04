@@ -1,7 +1,7 @@
 {
   "metadata" : {
     "realm" : null,
-    "amsterVersion" : "14.0.0-SNAPSHOT",
+    "amsterVersion" : "14.0.0",
     "entityType" : "AuthenticatorPush",
     "entityId" : "AuthenticatorPush",
     "pathParams" : { }
@@ -12,7 +12,7 @@
       "authenticatorPushDeviceSettingsEncryptionKeystoreKeyPairAlias" : null,
       "authenticatorPushDeviceSettingsEncryptionKeystore" : "/root/openam/openam/keystore.jks",
       "authenticatorPushDeviceSettingsEncryptionKeystorePassword" : null,
-      "authenticatorPushDeviceSettingsEncryptionKeystorePassword-encrypted" : "AAAAA0FFUwIQ+NBMKpIBJxRKk2droaJAXXbp8BnS9oMHQbhLRPt6ejXsgp9TND9xgQ==",
+      "authenticatorPushDeviceSettingsEncryptionKeystorePassword-encrypted" : "AAAAA0FFUwIQYNavaGkvNEUbbhEQtwhjz2VC2xB/cpU/Vq84rtv/2+Pz2TsVJGDcZg==",
       "authenticatorPushDeviceSettingsEncryptionKeystorePrivateKeyPassword" : null,
       "pushAttrName" : "pushDeviceProfiles",
       "authenticatorPushDeviceSettingsEncryptionKeystoreType" : "JKS",

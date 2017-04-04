@@ -1,7 +1,7 @@
 {
   "metadata" : {
     "realm" : null,
-    "amsterVersion" : "14.0.0-SNAPSHOT",
+    "amsterVersion" : "14.0.0",
     "entityType" : "IdRepositoryUser",
     "entityId" : "amService-URLAccessAgent",
     "pathParams" : { }
@@ -10,7 +10,7 @@
     "_id" : "amService-URLAccessAgent",
     "sunIdentityMSISDNNumber" : null,
     "userPassword" : null,
-    "userPassword-encrypted" : "AAAAA0FFUwIQNb3dvyJeVkRwPibWer8DgYYMCpxiw+6qC5jsuUocPYEop0qnhp/lhV0F4Qth1XPFgAxkNxfWAEM=",
+    "userPassword-encrypted" : "AAAAA0FFUwIQshu9m5ogPvZSsGYxGlzi61TtdASx/PowWxbwaAuKlNbff+jP86DHMn36nx1iBjTItCtAFs4bTvM=",
     "telephoneNumber" : null,
     "mail" : null,
     "iplanet-am-user-alias-list" : null,
