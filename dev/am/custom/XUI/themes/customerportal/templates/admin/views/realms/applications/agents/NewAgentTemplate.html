@@ -1,0 +1,27 @@
+{{!
+  Copyright 2016-2017 ForgeRock AS. All Rights Reserved
+ 
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+{{> headers/_Title title=title  }}
+<p class="panel-description">{{t 'console.applications.agents.new.description'}}</p>
+
+
+<div class="panel multiple-panels panel-content">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="clearfix">
+                <form data-json-form></form>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-footer clearfix">
+        <div class="pull-right">
+            <a class="btn btn-default" href="{{routeTo 'realmsApplicationsAgentsSelection' realmPath}}">{{t "common.form.cancel"}}</a>
+            <button data-create class="btn btn-primary" type="button">{{t "console.applications.agents.new.create"}}</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+{{!
+  Copyright 2016-2017 ForgeRock AS. All Rights Reserved
+ 
+  Use of this code requires a commercial software license with ForgeRock AS.
+  or with one of its affiliates. All use shall be exclusively subject
+  to such license between the licensee and ForgeRock AS.
+}}
+<div class="form-inline">
+    <div class="radio-inline pull-right">
+        <div class="form-group checkbox checkbox-slider checkbox-slider--b checkbox-slider-primary">
+            <label>
+                <input data-json-editor-toggle type="checkbox" {{#if enablePropertyValue}}checked{{/if}}>
+                <span></span>
+            </label>
+        </div>
+    </div>
+    <h3 class="block-header {{#unless enablePropertyValue}}block-header-inactive{{/unless}}">
+        {{schema.raw.title}}
+    </h3>
+
+    {{#if schema.raw.description}}
+        <span class="text-muted">schema.raw.description</span>
+    {{/if}}
+</div>
+
+<div data-toggleable-json-editor/>
