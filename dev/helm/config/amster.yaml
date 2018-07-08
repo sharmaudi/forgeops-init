@@ -79,3 +79,4 @@ resources:
 # The default value is openam + . {Release.Namespace} .{Values.global.domain }
 # Uncomment or set this to explicity set the FQDN
 #openamFQDN: openam.example.com
+fqdn: openam.dev.local
