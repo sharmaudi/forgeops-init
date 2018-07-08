@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-readonly dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-
+readonly dir="/git/config/${CONFIG_PATH}"
 echo "Customizing the AM web application"
 echo ""
 
