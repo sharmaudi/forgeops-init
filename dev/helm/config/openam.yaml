@@ -1,0 +1,110 @@
+# Default values for openam runtime chart
+# This is a YAML-formatted file.
+# Declare name/value pairs to be passed into the templates.
+
+component: openam
+
+image:
+  repository: bambebo/forgerock/openam
+  tag: latest
+  # For development we set this to Always to get the most current image:
+  #pullPolicy: Always
+  pullPolicy: IfNotPresent
+
+global:
+  domain: .local
+  git:
+    # git repo to clone. The value below is a public git repo that does not require authentication.
+    repo: "https://github.com/sharmaudi/forgeops-init.git"
+    branch: master
+    projectDirectory: "forgeops-init"
+  configPath:
+    am: dev/am/custom
+  exportPath:
+      am: dev/am/autosave
+  # If you set this to true, you must have a TLS secret with the same name as the FQDN.
+  useTLS: false
+
+openamReplicaCount: 1
+
+openamInstance: http://openam:80/openam
+
+configLdapPort:  1389
+configLdapHost: configstore-0.configstore
+
+
+# This option:
+#  -Dorg.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=true \
+# is disabled to avoid http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0450 
+# This may impact amster imports for some configurations (SAML entities)
+# If you need to renable this for amster, it should be disabled after the import is complete
+
+catalinaOpts: >
+  -server -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap
+  -Dcom.sun.identity.util.debug.provider=com.sun.identity.shared.debug.impl.StdOutDebugProvider
+  -Dcom.sun.identity.shared.debug.file.format='%PREFIX% %MSG%\\n%STACKTRACE%'
+
+# For visualVM debug, you can add this to the above:
+#-Dcom.sun.management.jmxremote.port=<port>
+#-Dcom.sun.management.jmxremote.authenticate=false
+#-Dcom.sun.management.jmxremote.ssl=false
+#-Dcom.sun.management.jmxremote.rmi.port=<port>
+#-Djava.rmi.server.hostname=$HOST_HOSTNAME
+
+# Suffix for OpenDJ config store. We reuse the default baseDN of o=userstore.
+rootSuffix:  "o=userstore"
+
+# Valid logger types: fluent-bit, none
+# For audit logs it is suggested you configure AM to send directly to ElasticSearch.
+logDriver: none
+
+# The defaults below are small and OK for testing.
+# For production you wil want to set CPU limits to help Kube Schedule the pods.
+resources:
+ limits:
+   memory: 1300Mi
+ requests:
+   memory: 1200Mi
+
+
+openamHome: /home/forgerock/openam
+
+# Set to true to create a boot.json file to bootstrap AM. If set to false, AM will come up to the configurator page.
+createBootstrap: true
+
+# This is an optional path to a script to execute before AM starts up. It can copy in images, update the web.xml, etc.
+# The path is *relative* to /git/config/{{ configPath.am }}.
+# For example:   /git/config/default/am/my-config/customize-am.sh
+amCustomizationScriptPath: "customize_am.sh"
+
+# Liveness probe tuning - time in seconds
+livenessPeriod: 60
+livenessTimeout: 15
+
+rbac:
+  enabled: true
+
+
+service:
+  name: openam
+  #type: NodePort
+  type: ClusterIP
+  externalPort: 80
+  internalPort: 8080
+
+ingress:
+  class: nginx
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    # Do not use for nginx. TODO: Does warp need this?
+    #ingress.kubernetes.io/rewrite-target: /
+    ingress.kubernetes.io/enable-cors: "false"
+    ingress.kubernetes.io/affinity: "cookie"
+    ingress.kubernetes.io/session-cookie-name: "route"
+    ingress.kubernetes.io/session-cookie-hash: "sha1"
+    ingress.kubernetes.io/ssl-redirect: "true"
+    # Nginx specific annotations
+    nginx.ingress.kubernetes.io/affinity: "cookie"
+    nginx.ingress.kubernetes.io/session-cookie-name: "route"
+    nginx.ingress.kubernetes.io/session-cookie-hash: "sha1"
